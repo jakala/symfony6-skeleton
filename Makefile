@@ -48,4 +48,4 @@ commit:
 # revert
 .PHONY: revert
 revert:
-	@echo "@git reset --hard"
+	@git reset --hard
