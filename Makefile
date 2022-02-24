@@ -32,3 +32,17 @@ fix-style:
 # crear informe de metricas php
 .PHONY: metrics
 	@docker exec api vendor/bin/phpmetrics src --report-html=var/metrics
+
+# tcr (test && commit || revert)
+tcr: CMD=$(message)
+tcr:
+	@echo 'make run-tests && git commit -m "$(CMD)" || git revert'
+
+# commit
+commit: CMD=$(message)
+commit:
+	@git commit -m "$(CMD)"
+
+# revert
+revert:
+    @git revert
