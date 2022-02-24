@@ -39,10 +39,12 @@ tcr:
 	@echo 'make run-tests && git commit -m "$(CMD)" || git revert'
 
 # commit
+.PHONY: commit
 commit: CMD=$(message)
 commit:
 	@git commit -m "$(CMD)"
 
 # revert
+.PHONY: revert
 revert:
-    @git revert
+	@git revert
