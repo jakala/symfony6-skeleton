@@ -1,1 +1,3 @@
-make fix-style
+make check-style
+# like tcr process
+make run-tests || make revert
