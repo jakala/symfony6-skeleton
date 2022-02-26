@@ -1,6 +1,7 @@
 .idea/
 .phpunit.result.cache
 ###> symfony/framework-bundle ###
+/.env.test
 /.env.local
 /.env.local.php
 /.env.*.local
