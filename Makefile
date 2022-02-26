@@ -33,7 +33,19 @@ fix-style:
 .PHONY: metrics
 	@docker exec api vendor/bin/phpmetrics src --report-html=var/metrics
 
-# revert last changes in repository
+# tcr (test && commit || revert)
+.PHONY: tcr
+tcr: CMD=$(message)
+tcr:
+	@make run-tests && make commit "$(CMD)" || make revert
+
+# commit
+.PHONY: commit
+commit: CMD=$(message)
+commit:
+	@git commit -m "$(CMD)"
+
+# revert
 .PHONY: revert
 revert:
 	@git reset --hard
